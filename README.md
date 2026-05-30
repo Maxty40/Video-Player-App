@@ -1,5 +1,5 @@
 # Team Crowbar Co.
-## This project is for final project of Data Structure and Algorithm course, the implementation of Doubly Linked List and Queue.
+## A simple video player for final project of Data Structure and Algorithm course, the implementation of Doubly Linked List and Queue.
 
 ### Team members:
 1. **Dhiauddin Arfa** (0110225146)
