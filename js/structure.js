@@ -1,6 +1,6 @@
 // Main logic (class node, doubly linked list, and queue)
 
-// Node class r doubly linked list
+// Node class for doubly linked list
 class videoNode {
     // Constructor to initialize the node with title and url
     constructor(title, url) {
@@ -12,6 +12,15 @@ class videoNode {
         this.next = null;
         // Initialize the previous video to null
         this.prev = null;
+    }
+}
+
+// Node class for queue (used for managing the playlist)
+class queueNode {
+    constructor(title, url) {
+        this.title = title;
+        this.url = url;
+        this.next = null;
     }
 }
 
@@ -44,7 +53,7 @@ class videoPlayer {
     }
 
     // Methos to play the next video in the playlist
-    playNext () {
+    playNext() {
         // Check if there is a video playing and if there is a next video
         if (this.current && this.current.next) {
             this.current = this.current.next;
@@ -61,5 +70,59 @@ class videoPlayer {
             this.current = this.current.prev;
             return this.current;
         }
+        return null;
+    }
+    getCurrentVideo() {
+        return this.current;
+    }
+}
+
+class videoQueue {
+    constructor() {
+        this.front = null;
+        this.rear = null;
+        this.size = 0;
+    }
+
+    // Method to add a video to the rear of the queue
+    enqueue(title, url) {
+        const newNode = new queueNode(title, url);
+        if (!this.isEmpty()) {
+            this.front = newNode;
+            this.rear = newNode;
+        } else {
+            this.rear.next = newNode;
+            this.rear = newNode;
+        }
+        this.size++;
+    }
+
+    // Method to remove a video from the front of the queue
+    dequeue() {
+        if (!this.isEmpty()) {
+            return null;
+        }
+        const dequeueNode = this.front;
+        this.front = this.front.next;
+        // If the queue becomes empty after dequeue, set rear to null
+        if (!this.front) {
+            this.rear = null;
+        }
+        this.size--;
+        return dequeueNode;
+    }
+    // Check if the queue is empty
+    isEmpty() {
+        return this.size === 0;
+    }
+    // See all queue videos (for UI rendering & Local Storage)
+    getQueue() {
+        const result = [];
+        let current = this.front;
+        while (current) {
+            result.push({ title: current.title, url: current.url });
+            current = current.next;
+        }
+        return result;
     }
 }
