@@ -15,7 +15,7 @@ class videoNode {
     }
 }
 
-// Node class for queue (used for managing the playlist)
+// Node class for queue (used for managing the playlist
 class queueNode {
     constructor(title, url) {
         this.title = title;
