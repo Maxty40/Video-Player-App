@@ -1,1 +1,0 @@
-// For localstorage process (save, load)
