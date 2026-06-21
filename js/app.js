@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     while (current) {
       const itemElement = document.createElement('div');
       itemElement.className =
-        'playlist-item-card flex items-center justify-between p-2.5 bg-slate-950/20 hover:bg-slate-950/60 rounded-lg border border-slate-800/60 transition-all cursor-grab active:cursor-grabbing';
+        'playlist-item-card flex items-center justify-between p-2.5 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200/60 transition-all cursor-grab active:cursor-grabbing';
       itemElement.setAttribute('draggable', 'true');
       itemElement.setAttribute('data-index', index);
 
@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       itemElement.innerHTML = `
                 <div class="flex items-center gap-2.5 truncate pointer-events-none">
-                    <span class="drag-handle text-slate-600 hover:text-slate-400 text-xs">☰</span>
+                    <span class="drag-handle text-slate-400 hover:text-slate-500 text-xs">☰</span>
                     <div class="truncate">
-                        <p class="text-xs font-semibold ${isActive ? 'text-indigo-400' : 'text-slate-300'} truncate">${escapeHTML(current.title)}</p>
+                        <p class="text-xs font-semibold ${isActive ? 'text-blue-500' : 'text-slate-700'} truncate">${escapeHTML(current.title)}</p>
                     </div>
                 </div>
                 <button type="button" data-action="delete" data-index="${index}" class="text-[10px] text-rose-500 hover:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 px-2 py-1 rounded transition-colors cursor-pointer ml-2">
@@ -161,11 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach((card, idx) => {
       const titleText = card.querySelector('p');
       if (currentVideo && idx === getPlaylistNodeIndex(currentVideo)) {
-        card.classList.add('border-indigo-500/40', 'bg-slate-950/60');
-        titleText.classList.add('text-indigo-400');
+        card.classList.add('border-blue-500/40', 'bg-blue-50');
+        titleText.classList.add('text-blue-500');
       } else {
-        card.classList.remove('border-indigo-500/40', 'bg-slate-950/60');
-        titleText.classList.remove('text-indigo-400');
+        card.classList.remove('border-blue-500/40', 'bg-blue-50');
+        titleText.classList.remove('text-blue-500');
       }
     });
   }
@@ -200,15 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
     queueItems.forEach((item, index) => {
       const itemElement = document.createElement('div');
       itemElement.className =
-        'queue-item-node flex items-center justify-between p-3 bg-slate-950/40 rounded-xl border border-slate-800/80 hover:border-indigo-500/40 transition-all group';
+        'queue-item-node flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200/80 hover:border-blue-500/40 transition-all group';
       itemElement.innerHTML = `
                 <div class="flex items-center gap-3 truncate">
-                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-slate-800 text-xs font-bold text-slate-400 group-hover:bg-indigo-600/20 group-hover:text-indigo-400 transition-colors">
+                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-500 group-hover:bg-blue-600/20 group-hover:text-blue-500 transition-colors">
                         ${index + 1}
                     </span>
                     <div class="truncate">
-                        <p class="text-xs font-bold text-slate-200 truncate">${escapeHTML(item.title)}</p>
-                        <p class="text-[10px] text-slate-500 truncate mt-0.5">${escapeHTML(item.url)}</p>
+                        <p class="text-xs font-bold text-slate-800 truncate">${escapeHTML(item.title)}</p>
+                        <p class="text-[10px] text-slate-400 truncate mt-0.5">${escapeHTML(item.url)}</p>
                     </div>
                 </div>
             `;

@@ -12,10 +12,10 @@
 }
 
 #queue-nodes-container::-webkit-scrollbar-thumb {
-  background-color: #334155;
+  background-color: #cbd5e1;
   border-radius: 20px;
 }
 
 #queue-nodes-container::-webkit-scrollbar-thumb:hover {
-  background-color: #475569;
+  background-color: #94a3b8;
 }

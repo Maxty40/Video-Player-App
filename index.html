@@ -1,57 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Player App - Advanced UI</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" type="image/x-icon" href="images/play-button-svgrepo-com.svg">
-    <link rel="stylesheet" href="css/custom.css" />
-  </head>
-  <body
-    class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-indigo-500/30"
-  >
-    <div id="app" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-      <header
-        class="mb-8 border-b border-slate-800 pb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-      >
-        <div>
-          <h1
-            class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-          >
-            Media Stream Dashboard
-          </h1>
-          <p class="text-sm text-slate-400 mt-1">
-            Data-driven Doubly Linked List & FIFO Queue Native Orchestration
-          </p>
-        </div>
-        <div class="flex gap-2">
-          <span
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
-          >
-            <span
-              class="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse"
-            ></span>
-            Wayland-optimized Standard
-          </span>
-        </div>
-      </header>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2 space-y-8">
-          <section
-            class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-2xl space-y-4"
-            aria-label="Video Player Area"
-          >
-            <div
-              class="relative aspect-video w-full bg-black rounded-xl overflow-hidden group shadow-inner border border-slate-950"
-            >
-              <iframe
-                id="main-video-player"
-                class="w-full h-full object-contain"
-                src=""
-                frameborder="0"
-                allow="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Player App - Advanced UI</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="icon" type="image/x-icon" href="images/play-button-svgrepo-com.svg">
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen font-sans antialiased selection:bg-blue-500/30">
+  <div id="app" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+    <header
+      class="mb-8 border-b border-slate-200 pb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <h1 class="text-3xl font-bold tracking-wide text-slate-900">
+          Nexus Video Player
+        </h1>
+        <p class="text-sm text-slate-500 mt-1">
+          Data-driven Doubly Linked List & FIFO Queue Native Orchestration
+        </p>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <section class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-xl space-y-4"
+          aria-label="Video Player Area">
+          <div
+            class="relative aspect-video w-full bg-black rounded-xl overflow-hidden group shadow-inner border border-slate-200">
+            <iframe id="main-video-player" class="w-full h-full object-contain" src="" frameborder="0" allow="
                   accelerometer;
                   autoplay;
                   clipboard-write;
@@ -59,270 +38,151 @@
                   gyroscope;
                   picture-in-picture;
                   web-share;
-                "
-                allowfullscreen
-              >
-              </iframe>
+                " allowfullscreen>
+            </iframe>
 
-              <div
-                id="video-placeholder-overlay"
-                class="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center text-slate-400 transition-opacity duration-300 hidden"
-              >
-                <svg
-                  class="w-12 h-12 text-slate-600 mb-2 animate-bounce"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-                <span class="text-sm font-medium tracking-wide"
-                  >No Active Media in Pipeline</span
-                >
-              </div>
-            </div>
-
-            <div
-              class="flex items-center justify-between bg-slate-950/50 p-3 rounded-xl border border-slate-800/60"
-            >
-              <button
-                id="btn-prev-track"
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed group"
-                disabled
-              >
-                <svg
-                  class="w-4 h-4 mr-1.5 transform group-hover:-translate-x-0.5 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  ></path>
-                </svg>
-                Previous
-              </button>
-
-              <div class="text-center px-4 max-w-[50%] truncate">
-                <span
-                  class="text-xs font-semibold tracking-wider text-indigo-400 uppercase block mb-0.5"
-                  >Now Playing</span
-                >
-                <span
-                  id="active-video-title"
-                  class="text-sm font-bold text-slate-100 truncate block"
-                  >---</span
-                >
-              </div>
-
-              <button
-                id="btn-next-track"
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed group"
-                disabled
-              >
-                Next
-                <svg
-                  class="w-4 h-4 ml-1.5 transform group-hover:translate-x-0.5 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </section>
-
-          <section
-            class="bg-slate-900/60 rounded-xl border border-slate-800/80 p-4 mt-4 shadow-inner"
-          >
-            <div class="flex items-center justify-between mb-3">
-              <div>
-                <h3 class="text-sm font-bold text-slate-200">
-                  Active Playlist Order (DLL)
-                </h3>
-                <p class="text-[11px] text-slate-500">
-                  Drag items to reorder sequence. Changes sync natively.
-                </p>
-              </div>
-            </div>
-
-            <div
-              id="playlist-nodes-container"
-              class="space-y-2 max-h-[240px] overflow-y-auto pr-1"
-            ></div>
-          </section>
-
-          <section
-            class="bg-slate-900 rounded-2xl border border-slate-800 p-5 shadow-2xl"
-            aria-label="Media Injection Control"
-          >
-            <h2
-              class="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2"
-            >
-              <svg
-                class="w-5 h-5 text-indigo-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
+            <div id="video-placeholder-overlay"
+              class="absolute inset-0 bg-slate-50/90 flex flex-col items-center justify-center text-slate-500 transition-opacity duration-300 hidden">
+              <svg class="w-12 h-12 text-slate-400 mb-2 animate-bounce" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                </path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              Media Registry Pipeline
-            </h2>
-
-            <form
-              id="media-registry-form"
-              class="space-y-4"
-              onsubmit="return false;"
-            >
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="space-y-1.5">
-                  <label
-                    for="input-video-title"
-                    class="text-xs font-semibold uppercase tracking-wider text-slate-400"
-                    >Media Title</label
-                  >
-                  <input
-                    type="text"
-                    id="input-video-title"
-                    required
-                    placeholder="e.g., Big Buck Bunny"
-                    class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-800 rounded-lg text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                  />
-                </div>
-                <div class="space-y-1.5">
-                  <label
-                    for="input-video-url"
-                    class="text-xs font-semibold uppercase tracking-wider text-slate-400"
-                    >Direct Video Stream URL</label
-                  >
-                  <input
-                    type="url"
-                    id="input-video-url"
-                    required
-                    placeholder="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-                    class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-800 rounded-lg text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                  />
-                </div>
-              </div>
-
-              <div class="flex flex-wrap sm:flex-nowrap gap-3 pt-2">
-                <button
-                  id="btn-add-playlist"
-                  type="button"
-                  class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white transition-colors shadow-lg shadow-indigo-600/10 cursor-pointer"
-                >
-                  Append to Main Playlist (DLL)
-                </button>
-                <button
-                  id="btn-enqueue-queue"
-                  type="button"
-                  class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white transition-colors shadow-lg shadow-emerald-600/10 cursor-pointer"
-                >
-                  Push to Up Next Queue (FIFO)
-                </button>
-              </div>
-            </form>
-          </section>
-        </div>
-
-        <aside
-          class="bg-slate-900 rounded-2xl border border-slate-800 p-5 shadow-2xl flex flex-col h-full min-h-[500px]"
-          aria-label="FIFO Queue Streams"
-        >
-          <div
-            class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/60"
-          >
-            <div>
-              <h2 class="text-lg font-bold text-slate-200">Up Next Pipeline</h2>
-              <p class="text-xs text-slate-500">
-                First-In, First-Out Buffer System
-              </p>
-            </div>
-            <span
-              id="queue-badge-count"
-              class="px-2 py-0.5 text-xs font-bold rounded-full bg-slate-800 text-slate-400 border border-slate-700"
-            >
-              0 Items
-            </span>
-          </div>
-
-          <div
-            id="queue-nodes-container"
-            class="flex-1 space-y-3 overflow-y-auto max-h-[360px] pr-1 scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent"
-          >
-            <div
-              id="queue-empty-state"
-              class="h-full flex flex-col items-center justify-center text-slate-600 py-12 text-center"
-            >
-              <svg
-                class="w-10 h-10 stroke-1 mb-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                ></path>
-              </svg>
-              <span class="text-xs font-medium">FIFO Queue Buffer Empty</span>
+              <span class="text-sm font-medium tracking-wide">No Active Media in Pipeline</span>
             </div>
           </div>
 
-          <div class="pt-4 mt-4 border-t border-slate-800/60">
-            <button
-              id="btn-dequeue-play"
-              class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:from-emerald-700 active:to-teal-700 text-white transition-all shadow-lg shadow-emerald-900/20 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer"
-              disabled
-            >
-              <svg
-                class="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
+          <div class="flex items-center justify-between bg-slate-50/50 p-3 rounded-xl border border-slate-200/60">
+            <button id="btn-prev-track"
+              class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              disabled>
+              <svg class="w-4 h-4 mr-1.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
               </svg>
-              Process & Play Next Queue Node
+              Previous
+            </button>
+
+            <div class="text-center px-4 max-w-[50%] truncate">
+              <span class="text-xs font-semibold tracking-wider text-blue-500 uppercase block mb-0.5">Now Playing</span>
+              <span id="active-video-title" class="text-xl font-semibold text-slate-900 truncate block">---</span>
+            </div>
+
+            <button id="btn-next-track"
+              class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              disabled>
+              Next
+              <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-0.5 transition-transform" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
             </button>
           </div>
-        </aside>
-      </div>
-    </div>
+        </section>
 
-    <script type="module" src="js/app.js"></script>
-  </body>
+        <section class="bg-white/60 rounded-xl border border-slate-200/80 p-4 mt-4 shadow-xl">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800">
+                Active Playlist Order (DLL)
+              </h3>
+              <p class="text-[11px] text-slate-500">
+                Drag items to reorder sequence. Changes sync natively.
+              </p>
+            </div>
+          </div>
+
+          <div id="playlist-nodes-container" class="space-y-2 max-h-[240px] overflow-y-auto pr-1"></div>
+        </section>
+
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 shadow-2xl"
+          aria-label="Media Injection Control">
+          <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Media Registry Pipeline
+          </h2>
+
+          <form id="media-registry-form" class="space-y-4" onsubmit="return false;">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label for="input-video-title"
+                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">Media Title</label>
+                <input type="text" id="input-video-title" required placeholder="e.g., Big Buck Bunny"
+                  class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="input-video-url"
+                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">Direct Video Stream URL</label>
+                <input type="url" id="input-video-url" required
+                  placeholder="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                  class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap sm:flex-nowrap gap-3 pt-2">
+              <button id="btn-add-playlist" type="button"
+                class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors shadow-lg shadow-blue-600/10 cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                Append to Main Playlist (DLL)
+              </button>
+              <button id="btn-enqueue-queue" type="button"
+                class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 transition-colors cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                Push to Up Next Queue (FIFO)
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <aside class="bg-white rounded-2xl border border-slate-200 p-5 shadow-2xl flex flex-col h-full min-h-[500px]"
+        aria-label="FIFO Queue Streams">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/60">
+          <div>
+            <h2 class="text-lg font-bold text-slate-800">Up Next Pipeline</h2>
+            <p class="text-xs text-slate-500">
+              First-In, First-Out Buffer System
+            </p>
+          </div>
+          <span id="queue-badge-count"
+            class="px-2 py-0.5 text-xs font-bold rounded-full bg-slate-100 text-slate-500 border border-slate-200">
+            0 Items
+          </span>
+        </div>
+
+        <div id="queue-nodes-container"
+          class="flex-1 space-y-3 overflow-y-auto max-h-[360px] pr-1 scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
+          <div id="queue-empty-state"
+            class="h-full flex flex-col items-center justify-center text-slate-400 py-12 text-center">
+            <svg class="w-10 h-10 stroke-1 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+              </path>
+            </svg>
+            <span class="text-xs font-medium">FIFO Queue Buffer Empty</span>
+          </div>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-slate-200/60">
+          <button id="btn-dequeue-play"
+            class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-bold rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-all shadow-lg shadow-blue-900/20 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            disabled>
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+              </path>
+            </svg>
+            Process & Play Next Queue Node
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+
 </html>
