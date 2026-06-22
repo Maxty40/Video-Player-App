@@ -26,14 +26,23 @@ Used to manage a list of videos to be played next using the **FIFO (First In, Fi
 
 ## 👥 Team Crowbar Co.
 
-This project was developed collaboratively with the following division of work roles:
+This project was developed collaboratively by:
 
-| Nama | Peran / Tugas |
-| :--- | :--- |
-| **Dhiauddin Arfa** | Core Algorithm |
-| **Ulwan Luthfi** | [Isi Role Teman 2] |
-| **Jhony Agus** | CEO of Crowbar Co. |
-| **Farras Mufid** | [Isi Role Teman 4] |
-| **Ahmad Afifi** | [Isi Role Teman 5] |
+1. **Dhiauddin Arfa**
+2. **Ulwan Luthfi**
+3. **Jhony Agus**
+4. **Farras Mufid**
+5. **Ahmad Afifi**
 
 ---
+
+## ⚙️ How to Install
+1. **Clone Repository**
+```bash
+git clone https://github.com/Maxty40/Video-Player-App.git
+```
+2. Open the folder directory
+```bash
+cd Video-player-app
+```
+3. Run the app from the VS Code using extension like Live Server
