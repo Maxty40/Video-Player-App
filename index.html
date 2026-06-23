@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Player App - Advanced UI</title>
+  <title>Nexus Video Player App</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="icon" type="image/x-icon" href="images/play-button-svgrepo-com.svg">
   <link rel="stylesheet" href="css/custom.css" />
@@ -19,7 +19,7 @@
           Nexus Video Player
         </h1>
         <p class="text-sm text-slate-500 mt-1">
-          Data-driven Doubly Linked List & FIFO Queue Native Orchestration
+          Implementasi Doubly Linked List & FIFO Queue
         </p>
       </div>
     </header>
@@ -51,7 +51,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span class="text-sm font-medium tracking-wide">No Active Media in Pipeline</span>
+              <span class="text-sm font-medium tracking-wide">Tidak Ada Video</span>
             </div>
           </div>
 
@@ -63,18 +63,18 @@
                 stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
               </svg>
-              Previous
+              Sebelumnya
             </button>
 
             <div class="text-center px-4 max-w-[50%] truncate">
-              <span class="text-xs font-semibold tracking-wider text-blue-500 uppercase block mb-0.5">Now Playing</span>
+              <span class="text-xs font-semibold tracking-wider text-blue-500 uppercase block mb-0.5">Diputar Sekarang</span>
               <span id="active-video-title" class="text-xl font-semibold text-slate-900 truncate block">---</span>
             </div>
 
             <button id="btn-next-track"
               class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
               disabled>
-              Next
+              Selanjutnya
               <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-0.5 transition-transform" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -87,10 +87,10 @@
           <div class="flex items-center justify-between mb-3">
             <div>
               <h3 class="text-sm font-bold text-slate-800">
-                Active Playlist Order (DLL)
+                Urutan Playlist yang Aktif
               </h3>
               <p class="text-[11px] text-slate-500">
-                Drag items to reorder sequence. Changes sync natively.
+                Tarik untuk mengubah urutan. Perubahan akan sikron otomatis.
               </p>
             </div>
           </div>
@@ -105,20 +105,20 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            Media Registry Pipeline
+            Tambahkan Video
           </h2>
 
           <form id="media-registry-form" class="space-y-4" onsubmit="return false;">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label for="input-video-title"
-                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">Media Title</label>
-                <input type="text" id="input-video-title" required placeholder="e.g., Big Buck Bunny"
+                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">Judul Video</label>
+                <input type="text" id="input-video-title" required placeholder="Contoh: Tutorial Python"
                   class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
               </div>
               <div class="space-y-1.5">
                 <label for="input-video-url"
-                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">Direct Video Stream URL</label>
+                  class="text-xs font-semibold uppercase tracking-wider text-slate-500">URL Stream Video</label>
                 <input type="url" id="input-video-url" required
                   placeholder="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
                   class="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
@@ -128,11 +128,11 @@
             <div class="flex flex-wrap sm:flex-nowrap gap-3 pt-2">
               <button id="btn-add-playlist" type="button"
                 class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors shadow-lg shadow-blue-600/10 cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                Append to Main Playlist (DLL)
+                Tambahkan ke Playlist
               </button>
               <button id="btn-enqueue-queue" type="button"
                 class="w-full sm:w-auto flex-1 inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 transition-colors cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                Push to Up Next Queue (FIFO)
+                Tambahkan ke Antrian Selanjutnya (FIFO)
               </button>
             </div>
           </form>
@@ -143,14 +143,14 @@
         aria-label="FIFO Queue Streams">
         <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/60">
           <div>
-            <h2 class="text-lg font-bold text-slate-800">Up Next Pipeline</h2>
+            <h2 class="text-lg font-bold text-slate-800">Playlist</h2>
             <p class="text-xs text-slate-500">
-              First-In, First-Out Buffer System
+              Sistem First-In, First-Out
             </p>
           </div>
           <span id="queue-badge-count"
             class="px-2 py-0.5 text-xs font-bold rounded-full bg-slate-100 text-slate-500 border border-slate-200">
-            0 Items
+            0 Video
           </span>
         </div>
 
@@ -163,7 +163,7 @@
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
               </path>
             </svg>
-            <span class="text-xs font-medium">FIFO Queue Buffer Empty</span>
+            <span class="text-xs font-medium">Antrian FIFO Kosong</span>
           </div>
         </div>
 
@@ -171,11 +171,15 @@
           <button id="btn-dequeue-play"
             class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-bold rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-all shadow-lg shadow-blue-900/20 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none"
             disabled>
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
-              </path>
+
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2,3.064v25.873c0,0.594,0.487,1.002,1.005,1.002c0.21,0,0.426-0.067,0.615-0.217L11,23.895
+                      v5.042c0,0.594,0.487,1.002,1.005,1.002c0.21,0,0.426-0.067,0.615-0.217l16.386-12.936c0.507-0.4,0.507-1.169,0-1.57L12.62,2.279
+                      c-0.19-0.15-0.405-0.217-0.615-0.217C11.487,2.062,11,2.469,11,3.064v5.042L3.62,2.279c-0.19-0.15-0.405-0.217-0.615-0.217
+                      C2.487,2.062,2,2.469,2,3.064z M4,26.866V5.134L17.764,16L4,26.866z M13,21.035l5.383-4.25c0.507-0.4,0.507-1.169,0-1.57L13,10.965
+                      V5.127L26.772,16L13,26.873V21.035z" />
             </svg>
-            Process & Play Next Queue Node
+            Video Selanjutnya
           </button>
         </div>
       </aside>
