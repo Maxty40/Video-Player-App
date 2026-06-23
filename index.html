@@ -55,9 +55,9 @@
             </div>
           </div>
 
-          <div class="flex items-center justify-between bg-slate-50/50 p-3 rounded-xl border border-slate-200/60">
+          <div class="items-center justify-between grid grid-cols-2 sm:flex sm:flex-row gap-3 sm:gap-0 bg-slate-50/50 p-3 rounded-xl border border-slate-200/60">
             <button id="btn-prev-track"
-              class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              class="inline-flex order-2 sm:order-1 w-full sm:w-auto items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
               disabled>
               <svg class="w-4 h-4 mr-1.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
@@ -66,13 +66,13 @@
               Sebelumnya
             </button>
 
-            <div class="text-center px-4 max-w-[50%] truncate">
+            <div class="text-center truncate order-1 sm:order-2 col-span-2 sm:col-span-1 w-full sm:max-w-[50%] px-2 sm:px-4">
               <span class="text-xs font-semibold tracking-wider text-blue-500 uppercase block mb-0.5">Diputar Sekarang</span>
               <span id="active-video-title" class="text-xl font-semibold text-slate-900 truncate block">---</span>
             </div>
 
             <button id="btn-next-track"
-              class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              class="inline-flex order-3 sm:order-3 w-full sm:w-auto items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed group focus:ring-2 focus:ring-blue-500 focus:outline-none"
               disabled>
               Selanjutnya
               <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-0.5 transition-transform" fill="none"
